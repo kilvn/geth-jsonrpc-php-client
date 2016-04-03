@@ -25,9 +25,8 @@ composer require letsagree/geth-jsonrpc-php-client
 # Usage
 ```php
 // Create HTTP client instance (you can use something simplier just wrap it by using IHttpClient interface)
-$httpClient = new GuzzleClient('localhost', 8545);
-
 // Create JsonRpc client which can run any operation on your geth node
+$httpClient = new GuzzleClient(new GuzzleClientFactory(), 'localhost', 8545);
 $client = new Client($httpClient);
 
 // Run operation (all are described here: https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods)
