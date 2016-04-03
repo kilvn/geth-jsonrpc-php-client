@@ -1,0 +1,22 @@
+{
+	"name": "letsagree/geth-jsonrpc-php-client",
+	"description": "",
+	"license": "MIT",
+	"type": "library",
+	"require": {
+		"php": ">= 5.6.0",
+		"nette/utils": "2.3.*",
+		"guzzlehttp/guzzle": "^6.2"
+	},
+	"require-dev": {
+		"nette/tester": "@dev"
+	},
+	"autoload": {
+		"psr-4": {
+			"LetsAgree\\GethJsonRpcPhpClient\\": "src/"
+		},
+		"classmap": [
+			"src/JsonRpc/exceptions.php"
+		]
+	}
+}
