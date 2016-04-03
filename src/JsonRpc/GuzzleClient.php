@@ -2,7 +2,7 @@
 
 namespace LetsAgree\GethJsonRpcPhpClient\JsonRpc;
 
-use GuzzleHttp\Client;
+use Guzzle\Http\Client as GuzzleHttpClient;
 
 
 
@@ -22,7 +22,7 @@ class GuzzleClient implements IHttpClient
 		$options = [
 			'base_uri' => sprintf('%s:%d', $url, $port),
 		];
-		$this->client = new Client($options);
+		$this->client = new GuzzleHttpClient($options);
 	}
 
 
