@@ -3,26 +3,42 @@
 namespace LetsAgree\GethJsonRpcPhpClient\JsonRpc;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Exception\RequestException;
 
 
 
 class GuzzleClient implements IHttpClient
 {
 
+	/**
+	 * @var GuzzleHttpClient|NULL
+	 */
 	private $client;
+
+	/**
+	 * @var string[]
+	 */
+	private $options;
+
+	/**
+	 * @var GuzzleClientFactory
+	 */
+	private $guzzleClientFactory;
 
 
 
 	/**
+	 * @param GuzzleClientFactory $guzzleClientFactory
 	 * @param string $url
 	 * @param int $port
 	 */
-	public function __construct($url, $port)
+	public function __construct(GuzzleClientFactory $guzzleClientFactory, $url, $port)
 	{
-		$options = [
+		$this->guzzleClientFactory = $guzzleClientFactory;
+
+		$this->options = [
 			'base_uri' => sprintf('%s:%d', $url, $port),
 		];
-		$this->client = new GuzzleHttpClient($options);
 	}
 
 
@@ -32,9 +48,27 @@ class GuzzleClient implements IHttpClient
 	 */
 	public function post($body)
 	{
-		$response = $this->client->post('', ['body' => $body]);
+		try {
+			$this->openClient();
+			$response = $this->client->post('', ['body' => $body]);
+		} catch (RequestException $exception) {
+			throw new RequestFailedException(
+				sprintf('Request failed due to Guzzle exception: "%s".', $exception->getMessage()),
+				$exception->getCode(),
+				$exception
+			);
+		}
 
 		return $response->getBody()->getContents();
+	}
+
+
+
+	private function openClient()
+	{
+		if ($this->client === NULL) {
+			$this->client = $this->guzzleClientFactory->create($this->options);
+		}
 	}
 
 }
