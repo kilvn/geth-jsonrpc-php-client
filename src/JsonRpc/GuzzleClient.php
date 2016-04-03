@@ -2,7 +2,7 @@
 
 namespace LetsAgree\GethJsonRpcPhpClient\JsonRpc;
 
-use Guzzle\Http\Client as GuzzleHttpClient;
+use GuzzleHttp\Client as GuzzleHttpClient;
 
 
 
