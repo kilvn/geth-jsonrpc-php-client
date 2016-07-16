@@ -4,8 +4,8 @@ namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use GuzzleHttp\Client as GuzzleHttpClient;
 use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
+use GuzzleHttp\Client as GuzzleHttpClient;
 use Tester\Assert;
 use Tester\TestCase;
 

@@ -29,6 +29,16 @@ class ClientTest extends TestCase
 
 
 	/**
+	 * @return IHttpClient|MockInterface
+	 */
+	private function mockIHttpClient()
+	{
+		return Mockery::mock(IHttpClient::class);
+	}
+
+
+
+	/**
 	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
 	 */
 	public function testFailUponIdChange()
@@ -38,16 +48,6 @@ class ClientTest extends TestCase
 
 		$client = new Client($httpClient);
 		$client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
-	}
-
-
-
-	/**
-	 * @return IHttpClient|MockInterface
-	 */
-	private function mockIHttpClient()
-	{
-		return Mockery::mock(IHttpClient::class);
 	}
 
 }

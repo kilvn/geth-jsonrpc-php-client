@@ -4,10 +4,10 @@ namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use GuzzleHttp\Client as GuzzleHttpClient;
-use GuzzleHttp\Exception\RequestException;
 use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
 use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Exception\RequestException;
 use Mockery;
 use Mockery\MockInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -27,35 +27,6 @@ class GuzzleClientTest extends TestCase
 		$guzzle->post('{}');
 
 		Environment::$checkAssertions = FALSE;
-	}
-
-
-
-	/**
-	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
-	 */
-	public function testGuzzleFail()
-	{
-		$factory = $this->mockFactoryFailRequest();
-		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
-		$guzzle->post('{}');
-
-		Environment::$checkAssertions = FALSE;
-	}
-
-
-
-	/**
-	 * @return GuzzleClientFactory|MockInterface
-	 */
-	private function mockFactoryFailRequest()
-	{
-		return Mockery::mock(GuzzleClientFactory::class)
-			->shouldReceive('create')->andReturnUsing(
-				function () {
-					throw Mockery::mock(RequestException::class);
-				}
-			)->getMock();
 	}
 
 
@@ -85,6 +56,35 @@ class GuzzleClientTest extends TestCase
 						Mockery::mock(StreamInterface::class)
 							->shouldReceive('getContents')->andReturn($result)->getMock()
 					)->getMock()
+			)->getMock();
+	}
+
+
+
+	/**
+	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
+	 */
+	public function testGuzzleFail()
+	{
+		$factory = $this->mockFactoryFailRequest();
+		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
+		$guzzle->post('{}');
+
+		Environment::$checkAssertions = FALSE;
+	}
+
+
+
+	/**
+	 * @return GuzzleClientFactory|MockInterface
+	 */
+	private function mockFactoryFailRequest()
+	{
+		return Mockery::mock(GuzzleClientFactory::class)
+			->shouldReceive('create')->andReturnUsing(
+				function () {
+					throw Mockery::mock(RequestException::class);
+				}
 			)->getMock();
 	}
 

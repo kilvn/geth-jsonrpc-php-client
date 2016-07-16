@@ -12,7 +12,7 @@ class GuzzleClientFactory extends Object
 
 	/**
 	 * @param string[] $options
-	 * @return Client
+	 * @return GuzzleHttpClient
 	 */
 	public function create(array $options)
 	{
