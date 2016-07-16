@@ -1,8 +1,8 @@
-[![Downloads this Month](https://img.shields.io/packagist/dm/letsagree/geth-jsonrpc-php-client.svg)](https://packagist.org/packages/letsagree/geth-jsonrpc-php-client)
-[![Latest Stable Version](https://poser.pugx.org/letsagree/geth-jsonrpc-php-client/v/stable)](https://github.com/letsagree/geth-jsonrpc-php-client/releases)
-![](https://travis-ci.org/letsagree/geth-jsonrpc-php-client.svg?branch=master)
-![](https://scrutinizer-ci.com/g/letsagree/geth-jsonrpc-php-client/badges/quality-score.png?b=master)
-![](https://scrutinizer-ci.com/g/letsagree/geth-jsonrpc-php-client/badges/coverage.png?b=master)
+[![Downloads this Month](https://img.shields.io/packagist/dm/achse/geth-jsonrpc-php-client.svg)](https://packagist.org/packages/achse/geth-jsonrpc-php-client)
+[![Latest Stable Version](https://poser.pugx.org/achse/geth-jsonrpc-php-client/v/stable)](https://github.com/achse/geth-jsonrpc-php-client/releases)
+[![Build Status](https://travis-ci.org/Achse/geth-jsonrpc-php-client.svg?branch=master)](https://travis-ci.org/Achse/geth-jsonrpc-php-client)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Achse/geth-jsonrpc-php-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Achse/geth-jsonrpc-php-client/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Achse/geth-jsonrpc-php-client/badge.svg?branch=master)](https://coveralls.io/github/Achse/geth-jsonrpc-php-client?branch=master)
 
 # Introduction
 This API client lib is used to communicate with `geth` (go-ethereum) node.
@@ -19,7 +19,7 @@ described here: https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods
 
 # Install
 ```
-composer require letsagree/geth-jsonrpc-php-client
+composer require achse/geth-jsonrpc-php-client
 ```
 
 # Usage

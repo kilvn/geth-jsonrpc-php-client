@@ -1,11 +1,11 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
 use GuzzleHttp\Client as GuzzleHttpClient;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
+use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
 use Tester\Assert;
 use Tester\TestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests;
+namespace Achse\GethJsonRpcPhpClient\Tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 

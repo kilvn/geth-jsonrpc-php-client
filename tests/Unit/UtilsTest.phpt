@@ -1,10 +1,10 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests\Utils;
+namespace Achse\GethJsonRpcPhpClient\Tests\Utils;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use LetsAgree\GethJsonRpcPhpClient\Utils;
+use Achse\GethJsonRpcPhpClient\Utils;
 use Tester\Assert;
 use Tester\TestCase;
 

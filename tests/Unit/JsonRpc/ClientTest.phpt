@@ -1,11 +1,11 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\Client;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\IHttpClient;
+use Achse\GethJsonRpcPhpClient\JsonRpc\Client;
+use Achse\GethJsonRpcPhpClient\JsonRpc\IHttpClient;
 use Mockery;
 use Mockery\MockInterface;
 use Tester\Assert;
@@ -29,7 +29,7 @@ class ClientTest extends TestCase
 
 
 	/**
-	 * @throws \LetsAgree\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
+	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
 	 */
 	public function testFailUponIdChange()
 	{

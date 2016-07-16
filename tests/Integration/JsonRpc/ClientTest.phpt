@@ -1,12 +1,12 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests\Integration\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\Tests\Integration\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\Client;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
+use Achse\GethJsonRpcPhpClient\JsonRpc\Client;
+use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
+use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
 use Tester\Assert;
 use Tester\TestCase;
 

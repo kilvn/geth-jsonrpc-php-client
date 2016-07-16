@@ -1,6 +1,6 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 
 

@@ -1,5 +1,5 @@
 {
-	"name": "letsagree/geth-jsonrpc-php-client",
+	"name": "achse/geth-jsonrpc-php-client",
 	"description": "API client lib for communication with geth (go-ethereum) node.",
 	"license": "MIT",
 	"type": "library",
@@ -14,7 +14,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"LetsAgree\\GethJsonRpcPhpClient\\": "src/"
+			"Achse\\GethJsonRpcPhpClient\\": "src/"
 		},
 		"classmap": [
 			"src/JsonRpc/exceptions.php"

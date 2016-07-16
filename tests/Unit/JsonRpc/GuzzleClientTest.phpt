@@ -1,13 +1,13 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
-use LetsAgree\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
+use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
+use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
 use Mockery;
 use Mockery\MockInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -32,7 +32,7 @@ class GuzzleClientTest extends TestCase
 
 
 	/**
-	 * @throws \LetsAgree\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
+	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
 	 */
 	public function testGuzzleFail()
 	{

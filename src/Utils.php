@@ -1,6 +1,6 @@
 <?php
 
-namespace LetsAgree\GethJsonRpcPhpClient;
+namespace Achse\GethJsonRpcPhpClient;
 
 use Nette\Object;
 
