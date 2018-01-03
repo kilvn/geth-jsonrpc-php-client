@@ -70,7 +70,7 @@ class Client extends Object
 			);
 		}
 
-		return $response->result;
+		return $response;
 	}
 
 }
