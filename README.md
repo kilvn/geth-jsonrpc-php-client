@@ -6,6 +6,7 @@
 
 # Introduction
 This API client lib is used to communicate with `geth` (go-ethereum) node.
+Last Updated: 01/04/2018 (works perfect with last geth-1.7.3-4bb3c89d).
 
 Via this client lib you can easily run operation on the node such is:
 * Get account balance,
