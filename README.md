@@ -34,5 +34,5 @@ $client = new Client($httpClient);
 // Run operation (all are described here: https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods)
 $result = $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
 
-// $result ==='0x16345785d8a0000'
+// $result->result ==='0x16345785d8a0000'
 ```
