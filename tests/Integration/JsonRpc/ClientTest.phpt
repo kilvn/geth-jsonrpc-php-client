@@ -20,7 +20,7 @@ class ClientTest extends TestCase
 		$httpClient = new GuzzleClient(new GuzzleClientFactory(), 'localhost', 8545);
 		$client = new Client($httpClient);
 		$result = $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
-		Assert::equal('0x16345785d8a0000', $result);
+		Assert::equal('0x16345785d8a0000', $result->result);
 	}
 
 }

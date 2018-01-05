@@ -50,7 +50,7 @@ class GuzzleClient implements IHttpClient
 	{
 		try {
 			$this->openClient();
-			$response = $this->client->post('', ['body' => $body]);
+			$response = $this->client->post('', ['body' => $body, 'headers' => ['Content-Type' => 'application/json']]);
 		} catch (RequestException $exception) {
 			throw new RequestFailedException(
 				sprintf('Request failed due to Guzzle exception: "%s".', $exception->getMessage()),
