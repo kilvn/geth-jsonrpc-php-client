@@ -2,12 +2,15 @@
 
 namespace Achse\GethJsonRpcPhpClient;
 
-use Nette\Object;
+use Nette\SmartObject;
+use function bcadd;
+use function bcmul;
+use function bcpow;
 
 
-
-class Utils extends Object
+class Utils
 {
+	use SmartObject;
 
 	/**
 	 * @see http://stackoverflow.com/questions/1273484/large-hex-values-with-php-hexdec
