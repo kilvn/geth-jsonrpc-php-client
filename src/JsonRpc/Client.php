@@ -2,14 +2,16 @@
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
-use Nette\Object;
+use Nette\SmartObject;
 use Nette\Utils\Json;
 use stdClass;
 
 
 
-class Client extends Object
+class Client
 {
+
+	use SmartObject;
 
 	const JSON_RPC_VERSION = '2.0';
 
