@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
@@ -12,6 +12,6 @@ interface IHttpClient
 	 * @return string
 	 * @throws RequestFailedException
 	 */
-	public function post($body);
+	public function post(string $body): string;
 
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Integration\JsonRpc;
 
@@ -15,8 +15,8 @@ use Tester\TestCase;
 class ClientTest extends TestCase
 {
 
-	public function testCall()
-	{
+	public function testCall(): void
+    {
 		$httpClient = new GuzzleClient(new GuzzleClientFactory(), 'localhost', 8545);
 		$client = new Client($httpClient);
 		$result = $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);

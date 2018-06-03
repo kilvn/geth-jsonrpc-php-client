@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
@@ -30,14 +30,14 @@ class GuzzleClient implements IHttpClient
 	/**
 	 * @param GuzzleClientFactory $guzzleClientFactory
 	 * @param string $url
-	 * @param int $port
+	 * @param int|null $port
 	 */
-	public function __construct(GuzzleClientFactory $guzzleClientFactory, $url, $port)
+	public function __construct(GuzzleClientFactory $guzzleClientFactory, string $url, ?int $port = null)
 	{
 		$this->guzzleClientFactory = $guzzleClientFactory;
 
 		$this->options = [
-			'base_uri' => empty ($port) ? $url : sprintf('%s:%d', $url, $port),
+			'base_uri' => $port !== null ? sprintf('%s:%d', $url, $port) : $url,
 		];
 	}
 
@@ -46,10 +46,11 @@ class GuzzleClient implements IHttpClient
 	/**
 	 * @inheritdoc
 	 */
-	public function post($body)
+	public function post(string $body): string
 	{
 		try {
 			$this->openClient();
+			\assert($this->client !== NULL);
 			$response = $this->client->post('', ['body' => $body, 'headers' => ['Content-Type' => 'application/json']]);
 		} catch (RequestException $exception) {
 			throw new RequestFailedException(
@@ -64,8 +65,8 @@ class GuzzleClient implements IHttpClient
 
 
 
-	private function openClient()
-	{
+	private function openClient(): void
+    {
 		if ($this->client === NULL) {
 			$this->client = $this->guzzleClientFactory->create($this->options);
 		}

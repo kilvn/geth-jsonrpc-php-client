@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
@@ -15,7 +15,7 @@ class GuzzleClientFactory
 	 * @param string[] $options
 	 * @return GuzzleHttpClient
 	 */
-	public function create(array $options)
+    public function create(array $options): GuzzleHttpClient
 	{
 		return new GuzzleHttpClient($options);
 	}

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
@@ -20,8 +20,8 @@ use Tester\TestCase;
 class GuzzleClientTest extends TestCase
 {
 
-	public function testGuzzlePost()
-	{
+	public function testGuzzlePost(): void
+    {
 		$factory = $this->mockFactory('{}');
 		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
 		$guzzle->post('{}');
@@ -33,9 +33,9 @@ class GuzzleClientTest extends TestCase
 
 	/**
 	 * @param string $result
-	 * @return GuzzleClientFactory|MockInterface
+	 * @return GuzzleClientFactory&MockInterface
 	 */
-	private function mockFactory($result)
+	private function mockFactory($result): GuzzleClientFactory
 	{
 		return Mockery::mock(GuzzleClientFactory::class)
 			->shouldReceive('create')->andReturn($this->mockGuzzleClient($result))->getMock();
@@ -45,9 +45,9 @@ class GuzzleClientTest extends TestCase
 
 	/**
 	 * @param string $result
-	 * @return GuzzleHttpClient|MockInterface
+	 * @return GuzzleHttpClient&MockInterface
 	 */
-	private function mockGuzzleClient($result)
+	private function mockGuzzleClient(string $result)
 	{
 		return Mockery::mock(GuzzleHttpClient::class)
 			->shouldReceive('post')->andReturn(
@@ -64,8 +64,8 @@ class GuzzleClientTest extends TestCase
 	/**
 	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
 	 */
-	public function testGuzzleFail()
-	{
+	public function testGuzzleFail(): void
+    {
 		$factory = $this->mockFactoryFailRequest();
 		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
 		$guzzle->post('{}');
@@ -76,9 +76,9 @@ class GuzzleClientTest extends TestCase
 
 
 	/**
-	 * @return GuzzleClientFactory|MockInterface
+	 * @return GuzzleClientFactory&MockInterface
 	 */
-	private function mockFactoryFailRequest()
+	private function mockFactoryFailRequest(): GuzzleClientFactory
 	{
 		return Mockery::mock(GuzzleClientFactory::class)
 			->shouldReceive('create')->andReturnUsing(
