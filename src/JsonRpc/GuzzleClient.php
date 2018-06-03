@@ -37,7 +37,7 @@ class GuzzleClient implements IHttpClient
 		$this->guzzleClientFactory = $guzzleClientFactory;
 
 		$this->options = [
-			'base_uri' => sprintf('%s:%d', $url, $port),
+			'base_uri' => empty ($port) ? $url : sprintf('%s:%d', $url, $port),
 		];
 	}
 
