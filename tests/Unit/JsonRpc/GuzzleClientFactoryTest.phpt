@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
@@ -14,8 +14,8 @@ use Tester\TestCase;
 class GuzzleClientFactoryTest extends TestCase
 {
 
-	public function testCreate()
-	{
+	public function testCreate(): void
+    {
 		$factory = new GuzzleClientFactory();
 		Assert::type(GuzzleHttpClient::class, $factory->create([]));
 	}

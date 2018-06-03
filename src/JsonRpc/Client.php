@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
@@ -13,7 +13,7 @@ class Client
 
 	use SmartObject;
 
-	const JSON_RPC_VERSION = '2.0';
+	private const JSON_RPC_VERSION = '2.0';
 
 	/**
 	 * @var string
@@ -36,23 +36,21 @@ class Client
 	 * @param IHttpClient $client
 	 * @param string $jsonRpcVersion
 	 */
-	public function __construct(IHttpClient $client, $jsonRpcVersion = self::JSON_RPC_VERSION)
+	public function __construct(IHttpClient $client, string $jsonRpcVersion = self::JSON_RPC_VERSION)
 	{
 		$this->client = $client;
 		$this->jsonRpcVersion = $jsonRpcVersion;
 		$this->id = 1;
 	}
 
-
-
-	/**
-	 * @param string $method
-	 * @param array $params
-	 * @return string
-	 * @throws RequestFailedException
-	 */
-	public function callMethod($method, array $params)
-	{
+    /**
+     * @param string $method
+     * @param array $params
+     * @return stdClass
+     * @throws RequestFailedException
+     */
+	public function callMethod(string $method, array $params): stdClass
+    {
 		$request = [
 			'jsonrpc' => $this->jsonRpcVersion,
 			'method' => $method,

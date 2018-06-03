@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Utils;
 
@@ -19,8 +19,8 @@ class ClientTest extends TestCase
 	 * @param string $expectedBigDec
 	 * @param string $bigHex
 	 */
-	public function testBigHexToBigDec($expectedBigDec, $bigHex)
-	{
+	public function testBigHexToBigDec(string $expectedBigDec, string $bigHex): void
+    {
 		Assert::equal($expectedBigDec, Utils::bigHexToBigDec($bigHex));
 	}
 
@@ -29,8 +29,8 @@ class ClientTest extends TestCase
 	/**
 	 * @return array
 	 */
-	public function getDataForBigHexToBigDec()
-	{
+	public function getDataForBigHexToBigDec(): array
+    {
 		return [
 			['0', ''],
 

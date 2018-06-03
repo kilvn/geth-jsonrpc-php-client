@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient;
 
@@ -18,12 +18,12 @@ class Utils
 	 * @param string $hex
 	 * @return string
 	 */
-	public static function bigHexToBigDec($hex)
-	{
+	public static function bigHexToBigDec(string $hex): string
+    {
 		$dec = '0';
-		$len = strlen($hex);
+		$len = \strlen($hex);
 		for ($i = 1; $i <= $len; $i++) {
-			$dec = bcadd($dec, bcmul(strval(hexdec($hex[$i - 1])), bcpow('16', strval($len - $i))));
+			$dec = bcadd($dec, bcmul(\strval(hexdec($hex[$i - 1])), bcpow('16', \strval($len - $i))));
 		}
 
 		return $dec;

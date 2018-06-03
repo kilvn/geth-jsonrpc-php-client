@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
@@ -16,8 +16,8 @@ use Tester\TestCase;
 class ClientTest extends TestCase
 {
 
-	public function testCall()
-	{
+	public function testCall(): void
+    {
 		$httpClient = $this->mockIHttpClient();
 		$httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":1,"result":"0x16345785d8a0000"}');
 
@@ -29,9 +29,9 @@ class ClientTest extends TestCase
 
 
 	/**
-	 * @return IHttpClient|MockInterface
+	 * @return IHttpClient&MockInterface
 	 */
-	private function mockIHttpClient()
+	private function mockIHttpClient(): IHttpClient
 	{
 		return Mockery::mock(IHttpClient::class);
 	}
@@ -41,8 +41,8 @@ class ClientTest extends TestCase
 	/**
 	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
 	 */
-	public function testFailUponIdChange()
-	{
+	public function testFailUponIdChange(): void
+    {
 		$httpClient = $this->mockIHttpClient();
 		$httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":2,"result":"0x16345785d8a0000"}');
 
