@@ -25,6 +25,6 @@
 		"tests": "./vendor/bin/tester -s -j 32 -c php.ini src",
 		"phpcs": "./vendor/bin/phpcs --standard=ruleset.xml --extensions=php,phpt src",
 		"phpcbf": "./vendor/bin/phpcbf --standard=ruleset.xml --extensions=php,phpt src",
-		"phpstan": "./vendor/bin/phpstan analyse -l max src tests"
+		"phpstan": "./vendor/bin/phpstan analyse -l max src"
 	}
 }

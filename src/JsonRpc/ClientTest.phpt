@@ -1,55 +1,45 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
-namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use Achse\GethJsonRpcPhpClient\JsonRpc\Client;
-use Achse\GethJsonRpcPhpClient\JsonRpc\IHttpClient;
 use Mockery;
 use Mockery\MockInterface;
 use Tester\Assert;
 use Tester\TestCase;
 
-
-
 final class ClientTest extends TestCase
 {
-
-	public function testCall(): void
+    public function testCall(): void
     {
-		$httpClient = $this->mockIHttpClient();
-		$httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":1,"result":"0x16345785d8a0000"}');
+        $httpClient = $this->mockIHttpClient();
+        $httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":1,"result":"0x16345785d8a0000"}');
 
-		$client = new Client($httpClient);
-		$result = $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
-		Assert::equal('0x16345785d8a0000', $result->result);
-	}
+        $client = new Client($httpClient);
+        $result = $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
+        Assert::equal('0x16345785d8a0000', $result->result);
+    }
 
-
-
-	/**
-	 * @return IHttpClient&MockInterface
-	 */
-	private function mockIHttpClient(): IHttpClient
-	{
-		return Mockery::mock(IHttpClient::class);
-	}
-
-
-
-	/**
-	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailed
-	 */
-	public function testFailUponIdChange(): void
+    /**
+     * @return IHttpClient&MockInterface
+     */
+    private function mockIHttpClient(): IHttpClient
     {
-		$httpClient = $this->mockIHttpClient();
-		$httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":2,"result":"0x16345785d8a0000"}');
+        return Mockery::mock(IHttpClient::class);
+    }
 
-		$client = new Client($httpClient);
-		$client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
-	}
+    /**
+     * @throws RequestFailed
+     */
+    public function testFailUponIdChange(): void
+    {
+        $httpClient = $this->mockIHttpClient();
+        $httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":2,"result":"0x16345785d8a0000"}');
 
+        $client = new Client($httpClient);
+        $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
+    }
 }
 
 

@@ -1,25 +1,20 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
-namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Tester\Assert;
 use Tester\TestCase;
 
-
-
 final class GuzzleClientFactoryTest extends TestCase
 {
-
-	public function testCreate(): void
+    public function testCreate(): void
     {
-		$factory = new GuzzleClientFactory();
-		Assert::type(GuzzleHttpClient::class, $factory->create([]));
-	}
-
+        $factory = new GuzzleClientFactory();
+        Assert::type(GuzzleHttpClient::class, $factory->create([]));
+    }
 }
 
 

@@ -1,11 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
-namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
+namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
-use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
 use Mockery;
@@ -15,79 +13,65 @@ use Psr\Http\Message\StreamInterface;
 use Tester\Environment;
 use Tester\TestCase;
 
-
-
 final class GuzzleClientTest extends TestCase
 {
-
-	public function testGuzzlePost(): void
+    public function testGuzzlePost(): void
     {
-		$factory = $this->mockFactory('{}');
-		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
-		$guzzle->post('{}');
+        $factory = $this->mockFactory('{}');
+        $guzzle = new GuzzleClient($factory, 'localhost', 12345);
+        $guzzle->post('{}');
 
-		Environment::$checkAssertions = FALSE;
-	}
+        Environment::$checkAssertions = false;
+    }
 
-
-
-	/**
-	 * @param string $result
-	 * @return GuzzleClientFactory&MockInterface
-	 */
-	private function mockFactory($result): GuzzleClientFactory
-	{
-		return Mockery::mock(GuzzleClientFactory::class)
-			->shouldReceive('create')->andReturn($this->mockGuzzleClient($result))->getMock();
-	}
-
-
-
-	/**
-	 * @param string $result
-	 * @return GuzzleHttpClient&MockInterface
-	 */
-	private function mockGuzzleClient(string $result)
-	{
-		return Mockery::mock(GuzzleHttpClient::class)
-			->shouldReceive('post')->andReturn(
-				Mockery::mock(ResponseInterface::class)
-					->shouldReceive('getBody')->andReturn(
-						Mockery::mock(StreamInterface::class)
-							->shouldReceive('getContents')->andReturn($result)->getMock()
-					)->getMock()
-			)->getMock();
-	}
-
-
-
-	/**
-	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailed
-	 */
-	public function testGuzzleFail(): void
+    /**
+     * @return GuzzleClientFactory&MockInterface
+     */
+    private function mockFactory(string $result): GuzzleClientFactory
     {
-		$factory = $this->mockFactoryFailRequest();
-		$guzzle = new GuzzleClient($factory, 'localhost', 12345);
-		$guzzle->post('{}');
+        return Mockery::mock(GuzzleClientFactory::class)
+            ->shouldReceive('create')->andReturn($this->mockGuzzleClient($result))->getMock();
+    }
 
-		Environment::$checkAssertions = FALSE;
-	}
+    /**
+     * @return GuzzleHttpClient&MockInterface
+     */
+    private function mockGuzzleClient(string $result)
+    {
+        return Mockery::mock(GuzzleHttpClient::class)
+            ->shouldReceive('post')->andReturn(
+                Mockery::mock(ResponseInterface::class)
+                    ->shouldReceive('getBody')->andReturn(
+                        Mockery::mock(StreamInterface::class)
+                            ->shouldReceive('getContents')->andReturn($result)->getMock()
+                    )->getMock()
+            )->getMock();
+    }
 
+    /**
+     * @throws RequestFailed
+     */
+    public function testGuzzleFail(): void
+    {
+        $factory = $this->mockFactoryFailRequest();
+        $guzzle = new GuzzleClient($factory, 'localhost', 12345);
+        $guzzle->post('{}');
 
+        Environment::$checkAssertions = false;
+    }
 
-	/**
-	 * @return GuzzleClientFactory&MockInterface
-	 */
-	private function mockFactoryFailRequest(): GuzzleClientFactory
-	{
-		return Mockery::mock(GuzzleClientFactory::class)
-			->shouldReceive('create')->andReturnUsing(
-				function () {
-					throw Mockery::mock(RequestException::class);
-				}
-			)->getMock();
-	}
-
+    /**
+     * @return GuzzleClientFactory&MockInterface
+     */
+    private function mockFactoryFailRequest(): GuzzleClientFactory
+    {
+        return Mockery::mock(GuzzleClientFactory::class)
+            ->shouldReceive('create')->andReturnUsing(
+                static function (): void {
+                    throw Mockery::mock(RequestException::class);
+                }
+            )->getMock();
+    }
 }
 
 
