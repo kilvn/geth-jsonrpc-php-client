@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 7.2
+  - 7.4
 
 before_script:
   - composer self-update || echo "[ERROR] update-composer failed!"
@@ -9,6 +9,7 @@ before_script:
 
 script:
     - composer phpstan
+    - composer phpcs
     - composer test ./tests/Unit
 
 after_success:
