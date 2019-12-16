@@ -8,7 +8,7 @@ use function bcmul;
 use function bcpow;
 use function hexdec;
 use function strlen;
-use function strval;
+use function substr;
 
 class Utils
 {

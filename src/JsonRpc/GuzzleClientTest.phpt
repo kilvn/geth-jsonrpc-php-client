@@ -10,6 +10,7 @@ use Mockery;
 use Mockery\MockInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use Tester\Assert;
 use Tester\Environment;
 use Tester\TestCase;
 
@@ -48,16 +49,11 @@ final class GuzzleClientTest extends TestCase
             )->getMock();
     }
 
-    /**
-     * @throws RequestFailed
-     */
     public function testGuzzleFail(): void
     {
         $factory = $this->mockFactoryFailRequest();
         $guzzle = new GuzzleClient($factory, 'localhost', 12345);
-        $guzzle->post('{}');
-
-        Environment::$checkAssertions = false;
+        Assert::exception(static fn () => $guzzle->post('{}'), RequestFailed::class);
     }
 
     /**
@@ -73,7 +69,5 @@ final class GuzzleClientTest extends TestCase
             )->getMock();
     }
 }
-
-
 
 (new GuzzleClientTest())->run();

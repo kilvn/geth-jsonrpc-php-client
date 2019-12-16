@@ -4,7 +4,6 @@ namespace Achse\GethJsonRpcPhpClient\Tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use DG\BypassFinals;
 use Tester\Assert;
 use Tester\Environment;
 use function class_exists;
@@ -16,7 +15,5 @@ if (!class_exists(Assert::class)) {
 }
 
 date_default_timezone_set('Europe/Prague');
-
-//BypassFinals::enable();
 
 Environment::setup();

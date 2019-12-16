@@ -47,7 +47,7 @@ final class Client
 
         if ($response->id !== $this->id) {
             throw new RequestFailed(
-                sprintf('Given ID %d, differs from expected %d', $response->id, $this->id)
+                sprintf('Given ID "%d", differs from expected "%d".', $response->id, $this->id)
             );
         }
 

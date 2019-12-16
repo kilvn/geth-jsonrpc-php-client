@@ -29,19 +29,21 @@ final class ClientTest extends TestCase
         return Mockery::mock(IHttpClient::class);
     }
 
-    /**
-     * @throws RequestFailed
-     */
     public function testFailUponIdChange(): void
     {
         $httpClient = $this->mockIHttpClient();
         $httpClient->shouldReceive('post')->andReturn('{"jsonrpc":"2.0","id":2,"result":"0x16345785d8a0000"}');
 
         $client = new Client($httpClient);
-        $client->callMethod('eth_getBalance', ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']);
+
+        Assert::exception(
+            static fn () => $client->callMethod(
+                'eth_getBalance',
+                ['0xf99ce9c17d0b4f5dfcf663b16c95b96fd47fc8ba', 'latest']
+            ),
+            RequestFailed::class
+        );
     }
 }
-
-
 
 (new ClientTest())->run();
