@@ -1,23 +1,19 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Nette\SmartObject;
 
-
-
 class GuzzleClientFactory
 {
-	use SmartObject;
+    use SmartObject;
 
-	/**
-	 * @param string[] $options
-	 * @return GuzzleHttpClient
-	 */
+    /**
+     * @param string[] $options
+     */
     public function create(array $options): GuzzleHttpClient
-	{
-		return new GuzzleHttpClient($options);
-	}
-
+    {
+        return new GuzzleHttpClient($options);
+    }
 }
