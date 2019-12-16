@@ -17,6 +17,6 @@ if (!class_exists(Assert::class)) {
 
 date_default_timezone_set('Europe/Prague');
 
-BypassFinals::enable();
+//BypassFinals::enable();
 
 Environment::setup();

@@ -4,7 +4,7 @@ namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 
-final class GuzzleClientFactory
+class GuzzleClientFactory
 {
     /**
      * @param string[] $options

@@ -2,6 +2,7 @@
 
 namespace Achse\GethJsonRpcPhpClient;
 
+use Nette\Utils\Strings;
 use function bcadd;
 use function bcmul;
 use function bcpow;
@@ -16,10 +17,17 @@ class Utils
      */
     public static function bigHexToBigDec(string $hex): string
     {
+        if (Strings::startsWith($hex, '0x')) {
+            $hex = substr($hex, 2);
+        }
+
         $dec = '0';
         $len = strlen($hex);
         for ($i = 1; $i <= $len; $i++) {
-            $dec = bcadd($dec, bcmul(strval(hexdec($hex[$i - 1])), bcpow('16', strval($len - $i))));
+            $pow = bcpow('16', (string)($len - $i));
+            $toDec = (string)hexdec($hex[$i - 1]);
+            $mul = bcmul($toDec, $pow);
+            $dec = bcadd($dec, $mul);
         }
 
         return $dec;

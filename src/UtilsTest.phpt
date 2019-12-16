@@ -36,4 +36,4 @@ class UtilsTest extends TestCase
 
 
 
-(new ClientTest())->run();
+(new UtilsTest())->run();
