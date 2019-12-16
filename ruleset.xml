@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="CodeStyle">
+    <rule ref="vendor/doctrine/coding-standard/lib/Doctrine/ruleset.xml">
+        <exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+        <exclude name="Generic.Formatting.SpaceAfterNot"/>
+
+        <!-- Because of .phpt files -->
+        <exclude name="PSR1.Files.SideEffects"/>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="0"/>
+            <property name="spacesCountAroundEqualsSign" value="1"/>
+            <property name="newlinesCountAfterDeclare" value="2"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
+        <properties>
+            <property name="spacesCountBeforeColon" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.Formatting.SpaceAfterCast">
+        <properties>
+            <property name="spacing" value="0"/>
+        </properties>
+    </rule>
+</ruleset>
