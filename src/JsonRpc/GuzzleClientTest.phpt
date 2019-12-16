@@ -2,7 +2,7 @@
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
-require_once __DIR__ . '/../../bootstrap.php';
+require_once __DIR__ . '/../bootstrap.php';
 
 use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClient;
 use Achse\GethJsonRpcPhpClient\JsonRpc\GuzzleClientFactory;
@@ -17,7 +17,7 @@ use Tester\TestCase;
 
 
 
-class GuzzleClientTest extends TestCase
+final class GuzzleClientTest extends TestCase
 {
 
 	public function testGuzzlePost(): void

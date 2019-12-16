@@ -6,13 +6,15 @@
 	"require": {
     "ext-bcmath": "*",
 		"php": ">= 7.4",
-		"guzzlehttp/guzzle": "^6.5"
+		"guzzlehttp/guzzle": "^6.5",
+		"nette/utils": "^3.0"
   },
 	"require-dev": {
 		"nette/tester": "@dev",
 		"mockery/mockery": "@dev",
 		"phpstan/phpstan": "^0.12",
-		"doctrine/coding-standard": "^7.0"
+		"doctrine/coding-standard": "^7.0",
+		"dg/bypass-finals": "^1.1"
 	},
 	"autoload": {
 		"psr-4": {
@@ -20,7 +22,7 @@
 		}
 	},
 	"scripts": {
-		"tests": "./vendor/bin/tester -s -j 32 -c ./tests/php.ini --coverage coverage.xml --coverage-src src",
+		"tests": "./vendor/bin/tester -s -j 32 -c php.ini src",
 		"phpcs": "./vendor/bin/phpcs --standard=ruleset.xml --extensions=php,phpt src",
 		"phpcbf": "./vendor/bin/phpcbf --standard=ruleset.xml --extensions=php,phpt src",
 		"phpstan": "./vendor/bin/phpstan analyse -l max src tests"

@@ -2,7 +2,7 @@
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Utils;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 use Achse\GethJsonRpcPhpClient\Utils;
 use Tester\Assert;
@@ -10,7 +10,7 @@ use Tester\TestCase;
 
 
 
-class ClientTest extends TestCase
+class UtilsTest extends TestCase
 {
 
 	/**

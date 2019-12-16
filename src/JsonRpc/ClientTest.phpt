@@ -2,7 +2,7 @@
 
 namespace Achse\GethJsonRpcPhpClient\Tests\Unit\JsonRpc;
 
-require_once __DIR__ . '/../../bootstrap.php';
+require_once __DIR__ . '/../bootstrap.php';
 
 use Achse\GethJsonRpcPhpClient\JsonRpc\Client;
 use Achse\GethJsonRpcPhpClient\JsonRpc\IHttpClient;
@@ -13,7 +13,7 @@ use Tester\TestCase;
 
 
 
-class ClientTest extends TestCase
+final class ClientTest extends TestCase
 {
 
 	public function testCall(): void

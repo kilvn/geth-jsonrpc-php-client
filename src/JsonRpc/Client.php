@@ -2,7 +2,6 @@
 
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
-use Nette\SmartObject;
 use Nette\Utils\Json;
 use stdClass;
 use function array_values;
@@ -11,8 +10,6 @@ use function sprintf;
 
 final class Client
 {
-    use SmartObject;
-
     private const JSON_RPC_VERSION = '2.0';
 
     private string $jsonRpcVersion;

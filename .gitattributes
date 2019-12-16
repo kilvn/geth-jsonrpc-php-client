@@ -1,0 +1,9 @@
+
+*.phpt export-ignore
+src/bootstrap.php
+
+.editorconfig export-ignore
+.gitignore export-ignore
+.travis.yml export-ignore
+php.ini export-ignore
+ruleset.xml export-ignore
