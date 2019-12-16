@@ -29,9 +29,9 @@ class Client
     }
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
-     * @throws RequestFailedException
+     * @throws RequestFailed
      */
     public function callMethod(string $method, array $params): stdClass
     {
@@ -49,7 +49,7 @@ class Client
         assert($response instanceof stdClass);
 
         if ($response->id !== $this->id) {
-            throw new RequestFailedException(
+            throw new RequestFailed(
                 sprintf('Given ID %d, differs from expected %d', $response->id, $this->id)
             );
         }

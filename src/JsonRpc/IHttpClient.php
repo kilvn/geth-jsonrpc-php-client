@@ -5,7 +5,7 @@ namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 interface IHttpClient
 {
     /**
-     * @throws RequestFailedException
+     * @throws RequestFailed
      */
     public function post(string $body): string;
 }

@@ -32,7 +32,7 @@ class GuzzleClient implements IHttpClient
             assert($this->client !== null);
             $response = $this->client->post('', ['body' => $body, 'headers' => ['Content-Type' => 'application/json']]);
         } catch (RequestException $exception) {
-            throw new RequestFailedException(
+            throw new RequestFailed(
                 sprintf('Request failed due to Guzzle exception: "%s".', $exception->getMessage()),
                 $exception->getCode(),
                 $exception

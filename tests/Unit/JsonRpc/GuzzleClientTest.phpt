@@ -62,7 +62,7 @@ class GuzzleClientTest extends TestCase
 
 
 	/**
-	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailedException
+	 * @throws \Achse\GethJsonRpcPhpClient\JsonRpc\RequestFailed
 	 */
 	public function testGuzzleFail(): void
     {

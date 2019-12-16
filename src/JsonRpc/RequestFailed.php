@@ -4,6 +4,6 @@ namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 use Exception;
 
-class RequestFailedException extends Exception
+class RequestFailed extends Exception
 {
 }
