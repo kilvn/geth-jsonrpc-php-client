@@ -3,12 +3,9 @@
 namespace Achse\GethJsonRpcPhpClient\JsonRpc;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
-use Nette\SmartObject;
 
-class GuzzleClientFactory
+final class GuzzleClientFactory
 {
-    use SmartObject;
-
     /**
      * @param string[] $options
      */

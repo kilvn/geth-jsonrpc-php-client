@@ -4,10 +4,10 @@
 	"license": "MIT",
 	"type": "library",
 	"require": {
+    "ext-bcmath": "*",
 		"php": ">= 7.4",
-		"nette/utils": "^3",
 		"guzzlehttp/guzzle": "^6.5"
-	},
+  },
 	"require-dev": {
 		"nette/tester": "@dev",
 		"mockery/mockery": "@dev",

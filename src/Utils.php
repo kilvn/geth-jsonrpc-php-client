@@ -2,7 +2,6 @@
 
 namespace Achse\GethJsonRpcPhpClient;
 
-use Nette\SmartObject;
 use function bcadd;
 use function bcmul;
 use function bcpow;
@@ -12,8 +11,6 @@ use function strval;
 
 class Utils
 {
-    use SmartObject;
-
     /**
      * @see http://stackoverflow.com/questions/1273484/large-hex-values-with-php-hexdec
      */

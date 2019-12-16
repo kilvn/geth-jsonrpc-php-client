@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\RequestException;
 use function assert;
 use function sprintf;
 
-class GuzzleClient implements IHttpClient
+final class GuzzleClient implements IHttpClient
 {
     private ?GuzzleHttpClient $client = null;
 

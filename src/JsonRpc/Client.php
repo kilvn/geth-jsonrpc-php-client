@@ -9,7 +9,7 @@ use function array_values;
 use function assert;
 use function sprintf;
 
-class Client
+final class Client
 {
     use SmartObject;
 
