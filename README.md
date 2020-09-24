@@ -19,9 +19,12 @@ Full documentation of all methods that can be run on `geth` node are
 described here: https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods
 
 
+# Fork
+update guzzlehttp/guzzle to ^7.0 for laravel8
+
 # Install
 ```
-composer require achse/geth-jsonrpc-php-client
+composer require kilvn/geth-jsonrpc-php-client
 ```
 
 # Usage
