@@ -4,9 +4,9 @@
 	"license": "MIT",
 	"type": "library",
 	"require": {
+    "php": ">= 7.4",
     "ext-bcmath": "*",
-		"php": ">= 7.4",
-		"guzzlehttp/guzzle": "^7.0",
+		"guzzlehttp/guzzle": "^6.0 | ^7.0",
 		"nette/utils": "^3.0"
   },
 	"require-dev": {
